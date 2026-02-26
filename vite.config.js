@@ -2,9 +2,10 @@ import { defineConfig } from "vite";
 import { resolve } from "path";
 
 export default defineConfig({
-  base: "/website/",   // ← THIS IS CRITICAL
+  base: "/website/",
 
   build: {
+    outDir: "dist",
     rollupOptions: {
       input: {
         home: resolve(__dirname, "index.html"),
