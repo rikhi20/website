@@ -596,3 +596,14 @@ a[href$="writing.html"],
 a[href$="speaking.html"] {
   display: none !important;
 }
+
+/* Make full-card links behave properly */
+.card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-link:hover {
+  text-decoration: none;
+}
