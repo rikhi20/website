@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,10 +61,12 @@
 
   <main>
 
+    <!-- HERO -->
     <section class="section" style="padding-top:60px;">
       <div class="container">
         <div class="hero-grid">
 
+          <!-- LEFT: copy -->
           <div class="reveal">
             <div class="row">
               <span class="tag">Product Manager</span>
@@ -90,35 +91,88 @@
             </div>
           </div>
 
+          <!-- RIGHT: profile + metrics -->
           <div class="reveal">
-            <div class="card spotlight" data-tilt>
-              <div class="grid metric-grid">
+            <div class="hero-stack">
 
-                <div>
-                  <div class="tag">Experience</div>
-                  <div class="metric-number">5+ yrs</div>
-                  <div class="muted tiny">Enterprise IT</div>
+              <!-- Profile card -->
+              <div class="card spotlight profile-card" data-tilt>
+                <div class="profile-top">
+                  <img
+                    class="avatar"
+                    src="assets/me.jpg"
+                    alt="Photo of Rikhi"
+                    loading="lazy"
+                  />
+
+                  <div class="profile-meta">
+                    <div class="tag">Rikhi Arindam Gayary</div>
+                    <div class="profile-title">Product Manager — Corporate IT</div>
+                    <div class="muted tiny">Tokyo • Internal Platforms • Governance Automation</div>
+                  </div>
                 </div>
 
-                <div>
-                  <div class="tag">Delivery</div>
-                  <div class="metric-number">100%</div>
-                  <div class="muted tiny">SLA Compliance</div>
+                <p class="muted" style="margin-top:14px; line-height:1.7;">
+                  I build internal products that feel invisible: stable identity + endpoint,
+                  measurable controls, and low-friction user experience.
+                </p>
+
+                <div class="profile-links" style="margin-top:14px;">
+                  <a class="pill tiny ghost" href="resume.html">Resume</a>
+                  <a class="pill tiny ghost" href="projects.html">Projects</a>
+                  <a class="pill tiny ghost" href="https://github.com/rikhi20" target="_blank" rel="noreferrer">GitHub</a>
+                  <a class="pill tiny ghost" href="https://www.linkedin.com/in/rikhi20/" target="_blank" rel="noreferrer">LinkedIn</a>
+                  <a class="pill tiny primary" href="contact.html">Contact</a>
                 </div>
 
-                <div>
-                  <div class="tag">Leadership</div>
-                  <div class="metric-number">10+</div>
-                  <div class="muted tiny">Engineers Led</div>
-                </div>
+                <div class="divider" aria-hidden="true"></div>
 
-                <div>
-                  <div class="tag">Optimization</div>
-                  <div class="metric-number">15%</div>
-                  <div class="muted tiny">Turnaround Reduction</div>
+                <div class="skills">
+                  <div class="tag" style="display:inline-flex;">Skills</div>
+                  <div class="skill-pills">
+                    <span class="chip">Product Strategy</span>
+                    <span class="chip">Roadmaps & OKRs</span>
+                    <span class="chip">Enterprise IT</span>
+                    <span class="chip">Identity (Entra)</span>
+                    <span class="chip">MDM (Intune/macOS)</span>
+                    <span class="chip">Governance</span>
+                    <span class="chip">Automation</span>
+                    <span class="chip">Stakeholder Mgmt</span>
+                  </div>
                 </div>
-
               </div>
+
+              <!-- Metrics card (kept) -->
+              <div class="card spotlight" data-tilt>
+                <div class="grid metric-grid">
+
+                  <div>
+                    <div class="tag">Experience</div>
+                    <div class="metric-number">5+ yrs</div>
+                    <div class="muted tiny">Enterprise IT</div>
+                  </div>
+
+                  <div>
+                    <div class="tag">Delivery</div>
+                    <div class="metric-number">100%</div>
+                    <div class="muted tiny">SLA Compliance</div>
+                  </div>
+
+                  <div>
+                    <div class="tag">Leadership</div>
+                    <div class="metric-number">10+</div>
+                    <div class="muted tiny">Engineers Led</div>
+                  </div>
+
+                  <div>
+                    <div class="tag">Optimization</div>
+                    <div class="metric-number">15%</div>
+                    <div class="muted tiny">Turnaround Reduction</div>
+                  </div>
+
+                </div>
+              </div>
+
             </div>
           </div>
 
@@ -126,6 +180,7 @@
       </div>
     </section>
 
+    <!-- EXPERTISE -->
     <section class="section" style="padding-top:20px;">
       <div class="container">
         <div class="grid expertise-grid">
@@ -155,6 +210,7 @@
       </div>
     </section>
 
+    <!-- ROLE + PHILOSOPHY -->
     <section class="section" style="padding-top:40px;">
       <div class="container">
         <div class="split">
@@ -182,6 +238,7 @@
       </div>
     </section>
 
+    <!-- CTA -->
     <section class="section" style="padding-top:40px;">
       <div class="container">
         <div class="card spotlight" style="text-align:center;">
