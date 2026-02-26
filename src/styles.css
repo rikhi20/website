@@ -590,3 +590,9 @@ main{ padding-bottom: 76px; }
   *{ animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   .reveal{ opacity: 1; transform: none; }
 }
+
+/* Hide Writing & Speaking links everywhere */
+a[href$="writing.html"],
+a[href$="speaking.html"] {
+  display: none !important;
+}
