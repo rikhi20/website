@@ -3,12 +3,72 @@ import { startThreeBackground } from "./three-bg.js";
 const $ = (q, el = document) => el.querySelector(q);
 const $$ = (q, el = document) => [...el.querySelectorAll(q)];
 
+/**
+ * Compute the "site base" for GitHub Pages project sites.
+ * Example:
+ *   https://rikhi20.github.io/website/blog.html -> base = https://rikhi20.github.io/website/
+ *   https://example.com/blog.html               -> base = https://example.com/
+ */
+function getSiteBase() {
+  const { origin, pathname } = window.location;
+
+  // If you're on /website/anything, base should be /website/
+  // We detect by taking first path segment (e.g. "website") when hosted on *.github.io
+  const parts = pathname.split("/").filter(Boolean);
+
+  // If running on GitHub Pages user domain, the first segment is the repo name.
+  // Example: /website/blog.html -> ["website", "blog.html"]
+  // We want "/website/".
+  if (origin.endsWith("github.io") && parts.length >= 1) {
+    return `${origin}/${parts[0]}/`;
+  }
+
+  // Non-GitHub hosting (root site)
+  return `${origin}/`;
+}
+
+const SITE_BASE = getSiteBase();
+
+/**
+ * Resolve an href (as written in HTML) into an absolute URL,
+ * but keep it within our site base for internal navigation.
+ */
+function resolveInternalUrl(href) {
+  // Ignore empty
+  if (!href) return null;
+
+  // In-page anchors
+  if (href.startsWith("#")) return new URL(href, window.location.href);
+
+  // mailto/tel
+  if (href.startsWith("mailto:") || href.startsWith("tel:")) return new URL(href);
+
+  // Absolute external URLs
+  if (/^https?:\/\//i.test(href)) return new URL(href);
+
+  // Protocol-relative (//example.com)
+  if (href.startsWith("//")) return new URL(window.location.protocol + href);
+
+  // If someone wrote "/blog.html", treat it as "/<repo>/blog.html" on GitHub Pages.
+  if (href.startsWith("/")) {
+    const clean = href.replace(/^\/+/, ""); // remove leading slashes
+    return new URL(clean, SITE_BASE);
+  }
+
+  // Normal relative link (blog.html, src/app.js, etc.)
+  return new URL(href, window.location.href);
+}
+
 function setActiveNav() {
-  const path = location.pathname.split("/").pop() || "index.html";
-  $$('nav.links a, .drawer a').forEach(a => {
-    const href = (a.getAttribute("href") || "").split("/").pop();
-    if (!href) return;
-    if (href === path) a.setAttribute("aria-current", "page");
+  // Use only the final file segment for matching (index.html, blog.html, etc.)
+  const curr = (location.pathname.split("/").filter(Boolean).pop() || "index.html").toLowerCase();
+
+  $$('nav.links a, .drawer a').forEach((a) => {
+    const raw = a.getAttribute("href") || "";
+    const target = raw.split("/").filter(Boolean).pop()?.toLowerCase();
+    if (!target) return;
+
+    if (target === curr) a.setAttribute("aria-current", "page");
     else a.removeAttribute("aria-current");
   });
 }
@@ -41,16 +101,14 @@ const toggleDrawer = (open) => {
 burgerBtn?.addEventListener("click", () => toggleDrawer());
 
 // close after clicking any drawer link
-$$(".drawer-link").forEach((a) =>
-  a.addEventListener("click", () => toggleDrawer(false))
-);
+$$(".drawer-link").forEach((a) => a.addEventListener("click", () => toggleDrawer(false)));
 
-// optional: close drawer if you click outside the inner panel
+// close drawer if you click outside the inner panel
 drawer?.addEventListener("click", (e) => {
   if (e.target === drawer) toggleDrawer(false);
 });
 
-// optional: close on Escape
+// close on Escape
 window.addEventListener("keydown", (e) => {
   if (e.key === "Escape") toggleDrawer(false);
 });
@@ -75,7 +133,6 @@ const io = new IntersectionObserver(
     for (const e of entries) {
       if (!e.isIntersecting) continue;
 
-      // Stagger children inside reveal groups (nice premium feel)
       const el = e.target;
       el.classList.add("in");
 
@@ -113,7 +170,6 @@ function attachTilt(el) {
       el.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-2px)`;
     });
 
-    // drive spotlight CSS vars
     if (el.classList.contains("spotlight")) {
       el.style.setProperty("--mx", `${px * 100}%`);
       el.style.setProperty("--my", `${py * 100}%`);
@@ -132,9 +188,8 @@ function attachTilt(el) {
 }
 $$("[data-tilt]").forEach(attachTilt);
 
-/* Spotlight cards: add class automatically */
-$$(".card").forEach(c => c.classList.add("spotlight"));
-// Spotlight follow for all cards (even without tilt)
+/* Spotlight cards */
+$$(".card").forEach((c) => c.classList.add("spotlight"));
 $$(".card.spotlight").forEach((card) => {
   let rAF = null;
 
@@ -152,16 +207,15 @@ $$(".card.spotlight").forEach((card) => {
 
   card.addEventListener("mousemove", setVars, { passive: true });
   card.addEventListener("mouseleave", () => {
-    // reset to center so there's no giant "stuck" hotspot
     card.style.setProperty("--mx", "50%");
     card.style.setProperty("--my", "45%");
   });
 });
 
-/* Magnetic CTA (subtle) */
+/* Magnetic CTA */
 function magnetic(el) {
   if (!el || prefersReduced) return;
-  const strength = 10; // px
+  const strength = 10;
   let rAF = null;
 
   const move = (e) => {
@@ -187,30 +241,38 @@ function magnetic(el) {
 }
 magnetic(document.querySelector(".pill.primary"));
 
-/* Page transitions (multi-page luxury) */
+/* Page transitions */
 const fade = document.createElement("div");
 fade.className = "page-fade";
 document.body.appendChild(fade);
 
-// fade in on load
 requestAnimationFrame(() => {
   fade.classList.remove("on");
 });
 
-// fade out on internal nav
 document.addEventListener("click", (e) => {
   const a = e.target?.closest?.("a");
   if (!a) return;
 
-  const href = a.getAttribute("href");
-  if (!href) return;
-  if (href.startsWith("#")) return; // in-page anchor
+  const rawHref = a.getAttribute("href");
+  if (!rawHref) return;
+  if (rawHref.startsWith("#")) return;
   if (a.target === "_blank") return;
-  if (href.startsWith("http")) return;
+
+  const url = resolveInternalUrl(rawHref);
+  if (!url) return;
+
+  // External site? let browser handle
+  if (url.origin !== window.location.origin) return;
+
+  // Internal nav: keep within SITE_BASE
+  const internalUrl = url.href.startsWith(SITE_BASE) ? url : new URL(url.pathname.replace(/^\/+/, ""), SITE_BASE);
 
   e.preventDefault();
   fade.classList.add("on");
-  setTimeout(() => (location.href = href), 220);
+  setTimeout(() => {
+    window.location.href = internalUrl.href;
+  }, 220);
 });
 
 /* Year */
@@ -224,8 +286,6 @@ const statusEl = $("#formStatus");
 form?.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  // Replace with your Formspree endpoint:
-  // https://formspree.io/f/xxxxxxx
   const FORMSPREE_ENDPOINT = "https://formspree.io/f/xwvnaaqb";
 
   const data = new FormData(form);
@@ -236,8 +296,8 @@ form?.addEventListener("submit", async (e) => {
   try {
     const res = await fetch(FORMSPREE_ENDPOINT, {
       method: "POST",
-      headers: { "Content-Type": "application/json", "Accept": "application/json" },
-      body: JSON.stringify(payload)
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(payload),
     });
 
     if (!res.ok) throw new Error("Non-200 response");
@@ -253,9 +313,5 @@ setActiveNav();
 /* Three.js background */
 const canvas = $("#webgl");
 if (canvas) {
-  // pass scroll coupling signal
-  const cleanup = startThreeBackground(canvas);
-
-  // optional if you ever want to stop it later:
-  // window.addEventListener("beforeunload", cleanup);
+  startThreeBackground(canvas);
 }
