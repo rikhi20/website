@@ -607,3 +607,76 @@ a[href$="speaking.html"] {
 .card-link:hover {
   text-decoration: none;
 }
+
+/* ===== Home: Profile card ===== */
+
+.hero-stack{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.profile-card{
+  padding:18px;
+}
+
+.profile-top{
+  display:flex;
+  gap:14px;
+  align-items:center;
+}
+
+.avatar{
+  width:64px;
+  height:64px;
+  border-radius:18px;
+  object-fit:cover;
+  flex:0 0 auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.profile-meta .tag{
+  display:inline-flex;
+  margin-bottom:8px;
+}
+
+.profile-title{
+  font-weight:650;
+  letter-spacing:-0.015em;
+  line-height:1.25;
+  margin-top:2px;
+}
+
+.profile-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.divider{
+  height:1px;
+  width:100%;
+  margin:16px 0 14px;
+  background: rgba(255,255,255,.10);
+}
+
+.skill-pills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:12px;
+}
+
+.chip{
+  display:inline-flex;
+  align-items:center;
+  padding:7px 10px;
+  border-radius:999px;
+  font-size:12px;
+  line-height:1;
+  letter-spacing:-0.01em;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  color: inherit;
+}
