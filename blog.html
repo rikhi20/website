@@ -5,12 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog — Rikhi Arindam Gayary</title>
     <meta name="description" content="Blog by Rikhi Arindam Gayary." />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&display=swap" rel="stylesheet">
 
-    <!-- Source CSS (NOT dist/assets) -->
     <link rel="stylesheet" href="src/styles.css" />
+
+    <style>
+      /* Full-card clickable fix */
+      .card-link {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+      }
+      .card-link:hover {
+        text-decoration: none;
+      }
+    </style>
   </head>
 
   <body>
@@ -21,12 +33,16 @@
       <div class="glow glow-b"></div>
     </div>
 
-    <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+    <div class="progress" aria-hidden="true">
+      <span id="progressBar"></span>
+    </div>
 
+    <!-- HEADER -->
     <header class="header">
       <div class="container nav">
         <a class="brand" href="index.html" aria-label="Home">
-          <span class="brand-dot"></span><span class="brand-text">RIKHI</span>
+          <span class="brand-dot"></span>
+          <span class="brand-text">RIKHI</span>
         </a>
 
         <nav class="links" aria-label="Primary">
@@ -48,7 +64,7 @@
       </div>
     </header>
 
-    <!-- Drawer OUTSIDE header -->
+    <!-- Drawer -->
     <div class="drawer" id="drawer" aria-hidden="true">
       <div class="drawer-inner">
         <a href="projects.html" class="drawer-link">Projects</a>
@@ -61,38 +77,86 @@
       </div>
     </div>
 
+    <!-- MAIN -->
     <main class="section">
       <div class="container">
         <div class="section-head reveal">
           <h1 class="title" style="margin:0;">Blog</h1>
-          <p class="muted">Later you can back this with Markdown + a generator.</p>
+          <p class="muted">
+            Thoughts on building, design, shipping, and learning in public.
+          </p>
         </div>
 
         <div class="grid cards">
-          <article class="card reveal" data-tilt>
-            <div class="row"><span class="tag">Post</span><span class="muted">Draft</span></div>
-            <h3 style="margin:14px 0 8px; letter-spacing:-.02em;">How I build premium UI motion</h3>
-            <p class="muted" style="margin:0; line-height:1.6;">Tease: principles for motion, performance, and polish.</p>
-            <div class="row" style="margin-top:12px;"><span class="pill tiny">Read</span><span class="muted tiny">→</span></div>
-          </article>
 
-          <article class="card reveal" data-tilt>
-            <div class="row"><span class="tag">Post</span><span class="muted">Draft</span></div>
-            <h3 style="margin:14px 0 8px; letter-spacing:-.02em;">Shipping fast without losing quality</h3>
-            <p class="muted" style="margin:0; line-height:1.6;">Tease: the systems and habits that keep output high.</p>
-            <div class="row" style="margin-top:12px;"><span class="pill tiny">Read</span><span class="muted tiny">→</span></div>
-          </article>
+          <!-- Post 1 -->
+          <a href="blog-premium-ui-motion.html" class="card reveal card-link" data-tilt>
+            <div class="row">
+              <span class="tag">Post</span>
+              <span class="muted">Draft</span>
+            </div>
 
-          <article class="card reveal" data-tilt>
-            <div class="row"><span class="tag">Note</span><span class="muted">Short</span></div>
-            <h3 style="margin:14px 0 8px; letter-spacing:-.02em;">Lessons from building in public</h3>
-            <p class="muted" style="margin:0; line-height:1.6;">Tease: feedback loops, iteration, and clarity.</p>
-            <div class="row" style="margin-top:12px;"><span class="pill tiny">Read</span><span class="muted tiny">→</span></div>
-          </article>
+            <h3 style="margin:14px 0 8px; letter-spacing:-.02em;">
+              How I build premium UI motion
+            </h3>
+
+            <p class="muted" style="margin:0; line-height:1.6;">
+              Tease: principles for motion, performance, and polish.
+            </p>
+
+            <div class="row" style="margin-top:12px;">
+              <span class="pill tiny">Read</span>
+              <span class="muted tiny">→</span>
+            </div>
+          </a>
+
+          <!-- Post 2 -->
+          <a href="blog-shipping-fast.html" class="card reveal card-link" data-tilt>
+            <div class="row">
+              <span class="tag">Post</span>
+              <span class="muted">Draft</span>
+            </div>
+
+            <h3 style="margin:14px 0 8px; letter-spacing:-.02em;">
+              Shipping fast without losing quality
+            </h3>
+
+            <p class="muted" style="margin:0; line-height:1.6;">
+              Tease: the systems and habits that keep output high.
+            </p>
+
+            <div class="row" style="margin-top:12px;">
+              <span class="pill tiny">Read</span>
+              <span class="muted tiny">→</span>
+            </div>
+          </a>
+
+          <!-- Post 3 -->
+          <a href="blog-building-in-public.html" class="card reveal card-link" data-tilt>
+            <div class="row">
+              <span class="tag">Note</span>
+              <span class="muted">Short</span>
+            </div>
+
+            <h3 style="margin:14px 0 8px; letter-spacing:-.02em;">
+              Lessons from building in public
+            </h3>
+
+            <p class="muted" style="margin:0; line-height:1.6;">
+              Tease: feedback loops, iteration, and clarity.
+            </p>
+
+            <div class="row" style="margin-top:12px;">
+              <span class="pill tiny">Read</span>
+              <span class="muted tiny">→</span>
+            </div>
+          </a>
+
         </div>
       </div>
     </main>
 
+    <!-- FOOTER -->
     <footer class="footer">
       <div class="muted tiny">© <span id="year"></span> Rikhi Arindam Gayary</div>
       <div class="row">
@@ -101,7 +165,6 @@
       </div>
     </footer>
 
-    <!-- Source JS (NOT dist/assets) -->
     <script type="module" src="src/app.js"></script>
   </body>
 </html>
