@@ -12,13 +12,10 @@ const $$ = (q, el = document) => [...el.querySelectorAll(q)];
 function getSiteBase() {
   const { origin, pathname } = window.location;
 
-  // If you're on /website/anything, base should be /website/
-  // We detect by taking first path segment (e.g. "website") when hosted on *.github.io
-  const parts = pathname.split("/").filter(Boolean);
-
   // If running on GitHub Pages user domain, the first segment is the repo name.
   // Example: /website/blog.html -> ["website", "blog.html"]
-  // We want "/website/".
+  const parts = pathname.split("/").filter(Boolean);
+
   if (origin.endsWith("github.io") && parts.length >= 1) {
     return `${origin}/${parts[0]}/`;
   }
@@ -34,33 +31,26 @@ const SITE_BASE = getSiteBase();
  * but keep it within our site base for internal navigation.
  */
 function resolveInternalUrl(href) {
-  // Ignore empty
   if (!href) return null;
 
-  // In-page anchors
   if (href.startsWith("#")) return new URL(href, window.location.href);
 
-  // mailto/tel
   if (href.startsWith("mailto:") || href.startsWith("tel:")) return new URL(href);
 
-  // Absolute external URLs
   if (/^https?:\/\//i.test(href)) return new URL(href);
 
-  // Protocol-relative (//example.com)
   if (href.startsWith("//")) return new URL(window.location.protocol + href);
 
   // If someone wrote "/blog.html", treat it as "/<repo>/blog.html" on GitHub Pages.
   if (href.startsWith("/")) {
-    const clean = href.replace(/^\/+/, ""); // remove leading slashes
+    const clean = href.replace(/^\/+/, "");
     return new URL(clean, SITE_BASE);
   }
 
-  // Normal relative link (blog.html, src/app.js, etc.)
   return new URL(href, window.location.href);
 }
 
 function setActiveNav() {
-  // Use only the final file segment for matching (index.html, blog.html, etc.)
   const curr = (location.pathname.split("/").filter(Boolean).pop() || "index.html").toLowerCase();
 
   $$('nav.links a, .drawer a').forEach((a) => {
@@ -100,15 +90,12 @@ const toggleDrawer = (open) => {
 
 burgerBtn?.addEventListener("click", () => toggleDrawer());
 
-// close after clicking any drawer link
 $$(".drawer-link").forEach((a) => a.addEventListener("click", () => toggleDrawer(false)));
 
-// close drawer if you click outside the inner panel
 drawer?.addEventListener("click", (e) => {
   if (e.target === drawer) toggleDrawer(false);
 });
 
-// close on Escape
 window.addEventListener("keydown", (e) => {
   if (e.key === "Escape") toggleDrawer(false);
 });
@@ -243,11 +230,20 @@ magnetic(document.querySelector(".pill.primary"));
 
 /* Page transitions */
 const fade = document.createElement("div");
-fade.className = "page-fade";
+fade.className = "page-fade on"; // start ON so initial paint is consistent
 document.body.appendChild(fade);
 
-requestAnimationFrame(() => {
-  fade.classList.remove("on");
+const clearFade = () => fade.classList.remove("on");
+
+// Fade in on initial load
+requestAnimationFrame(clearFade);
+
+// ✅ Fix: Back/Forward cache (bfcache) restores DOM as-is; ensure overlay is cleared
+window.addEventListener("pageshow", clearFade);
+
+// ✅ Fix: If user switches tabs and comes back while overlay is on
+document.addEventListener("visibilitychange", () => {
+  if (!document.hidden) clearFade();
 });
 
 document.addEventListener("click", (e) => {
