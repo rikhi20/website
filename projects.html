@@ -29,7 +29,7 @@
   <!-- HEADER -->
   <header class="header">
     <div class="container nav">
-      <a class="brand" href="index.html" aria-label="Home">
+      <a class="brand" href="./" aria-label="Home">
         <span class="brand-dot"></span>
         <span class="brand-text">RIKHI</span>
       </a>
@@ -54,7 +54,7 @@
     </div>
   </header>
 
-  <!-- ✅ Drawer must be OUTSIDE header (prevents stacking-context bugs) -->
+  <!-- Drawer OUTSIDE header -->
   <div class="drawer" id="drawer" aria-hidden="true">
     <div class="drawer-inner">
       <a href="projects.html" class="drawer-link" aria-current="page">Projects</a>
@@ -88,7 +88,8 @@
 
       <!-- Featured -->
       <div class="grid cards">
-        <article class="card reveal click" data-tilt onclick="window.open('https://github.com/rikhi20','_blank')">
+        <!-- Use an <a> wrapper instead of onclick so it works everywhere -->
+        <a class="card reveal click" data-tilt href="https://github.com/rikhi20" target="_blank" rel="noreferrer" style="text-decoration:none; color:inherit;">
           <div class="row">
             <span class="tag">Featured</span>
             <span class="muted">Platform</span>
@@ -101,9 +102,9 @@
             <span class="pill tiny">Overview</span>
             <span class="muted tiny">→</span>
           </div>
-        </article>
+        </a>
 
-        <article class="card reveal click" data-tilt onclick="location.href='/resume.html'">
+        <article class="card reveal click" data-tilt>
           <div class="row">
             <span class="tag">Corporate IT</span>
             <span class="muted">Systems</span>
@@ -118,7 +119,7 @@
           </div>
         </article>
 
-        <article class="card reveal click" data-tilt onclick="location.href='/contact.html'">
+        <article class="card reveal click" data-tilt>
           <div class="row">
             <span class="tag">Next</span>
             <span class="muted">Case study</span>
@@ -179,7 +180,7 @@
     </div>
   </main>
 
-  <!-- FOOTER (outside main for correct full-width behavior) -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="muted tiny">© <span id="year"></span> Rikhi Arindam Gayary</div>
     <div class="row">
