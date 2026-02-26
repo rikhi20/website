@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rikhi Arindam Gayary — Product & Systems</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+
+<body>
+
+  <div class="bg" aria-hidden="true">
+    <canvas id="webgl"></canvas>
+    <div class="grain"></div>
+  </div>
+
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="/index.html" aria-label="Home">
+        <span class="brand-dot"></span>
+        <span class="brand-text">RIKHI</span>
+      </a>
+
+      <nav class="links" aria-label="Primary">
+        <a href="/projects.html">Projects</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/writing.html">Writing</a>
+        <a href="/speaking.html">Speaking</a>
+        <a href="/resume.html">Resume</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">◐</button>
+        <a class="pill" href="/contact.html">Let’s build</a>
+
+        <button class="icon-btn burger" id="burgerBtn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ✅ Drawer MUST exist on this page too -->
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-inner">
+      <a href="/projects.html" class="drawer-link">Projects</a>
+      <a href="/blog.html" class="drawer-link">Blog</a>
+      <a href="/writing.html" class="drawer-link">Writing</a>
+      <a href="/speaking.html" class="drawer-link">Speaking</a>
+      <a href="/resume.html" class="drawer-link">Resume</a>
+      <a href="/contact.html" class="drawer-link">Contact</a>
+      <a class="pill wide" href="/contact.html">Let’s build</a>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="section" style="padding-top:60px;">
+      <div class="container">
+
+        <div class="hero-grid">
+
+          <!-- LEFT -->
+          <div class="reveal">
+            <div class="row">
+              <span class="tag">Product Manager</span>
+              <span class="muted">Enterprise IT • Systems • Governance</span>
+            </div>
+
+            <h1 class="title" style="margin-top:18px;">
+              Scalable internal platforms.
+              <br>
+              <span class="gradient">Enterprise precision.</span>
+            </h1>
+
+            <p class="subtitle">
+              I lead Corporate IT and internal system initiatives across infrastructure,
+              identity, endpoint management, and governance automation —
+              aligning engineering and compliance without slowing velocity.
+            </p>
+
+            <div class="hero-actions">
+              <a class="pill primary" href="/projects.html">Selected Work</a>
+              <a class="pill ghost" href="/resume.html">Full Resume</a>
+            </div>
+          </div>
+
+          <!-- RIGHT -->
+          <div class="reveal">
+            <div class="card spotlight" data-tilt>
+              <div class="grid metric-grid">
+
+                <div>
+                  <div class="tag">Experience</div>
+                  <div class="metric-number">5+ yrs</div>
+                  <div class="muted tiny">Enterprise IT</div>
+                </div>
+
+                <div>
+                  <div class="tag">Delivery</div>
+                  <div class="metric-number">100%</div>
+                  <div class="muted tiny">SLA Compliance</div>
+                </div>
+
+                <div>
+                  <div class="tag">Leadership</div>
+                  <div class="metric-number">10+</div>
+                  <div class="muted tiny">Engineers Led</div>
+                </div>
+
+                <div>
+                  <div class="tag">Optimization</div>
+                  <div class="metric-number">15%</div>
+                  <div class="muted tiny">Turnaround Reduction</div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT I DO -->
+    <section class="section" style="padding-top:20px;">
+      <div class="container">
+
+        <div class="grid expertise-grid">
+
+          <div class="card">
+            <div class="tag">Product Strategy</div>
+            <p class="muted" style="margin-top:12px;">
+              Roadmapping internal platforms, aligning OKRs, translating compliance into execution.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="tag">Infrastructure</div>
+            <p class="muted" style="margin-top:12px;">
+              AD, Azure AD / Entra, Intune, macOS MDM, device lifecycle automation.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="tag">Governance</div>
+            <p class="muted" style="margin-top:12px;">
+              Risk mitigation, audit support, vendor coordination, KPI-driven reporting.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CURRENT ROLE -->
+    <section class="section" style="padding-top:40px;">
+      <div class="container">
+
+        <div class="split">
+
+          <div class="card spotlight">
+            <div class="tag">Rakuten Group</div>
+            <h2 class="h2" style="margin-top:14px;">Product Manager — Corporate IT</h2>
+            <p class="muted" style="margin-top:10px;">
+              Own product strategy and roadmap for internal supervisory systems.
+              Lead cross-functional teams across engineering, security, and legal.
+              Drive automation initiatives that increase operational reliability.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="h2">Philosophy</h2>
+            <p class="muted" style="line-height:1.8; margin-top:12px;">
+              Enterprise systems should feel invisible.
+              Clean governance, stable infrastructure, measurable KPIs —
+              but no friction for the end user.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" style="padding-top:40px;">
+      <div class="container">
+        <div class="card spotlight" style="text-align:center;">
+          <h2 class="h2">Open to enterprise collaborations.</h2>
+          <p class="muted" style="margin-top:10px;">
+            Internal platforms, governance automation, or IT modernization strategy.
+          </p>
+          <div style="margin-top:16px;">
+            <a class="pill primary" href="/contact.html">Start a conversation</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="muted tiny">
+      © <span id="year"></span> Rikhi Arindam Gayary
+    </div>
+    <div class="row">
+      <a class="muted tiny" href="https://github.com/rikhi20" target="_blank" rel="noreferrer">GitHub</a>
+      <a class="muted tiny" href="https://www.linkedin.com/in/rikhi20/" target="_blank" rel="noreferrer">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/app.js"></script>
+
+</body>
+</html>
