@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 1) EDIT: Title -->
+  <title>POST TITLE — Rikhi Arindam Gayary</title>
+
+  <!-- 2) EDIT: Description -->
+  <meta name="description" content="Short post description for previews and SEO." />
+
+  <!-- (Optional) Social preview -->
+  <meta property="og:title" content="POST TITLE" />
+  <meta property="og:description" content="Short post description for previews and SEO." />
+  <meta property="og:type" content="article" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="src/styles.css" />
+
+  <!-- Optional: if you ever want a slightly nicer long-read width without touching global CSS -->
+  <style>
+    .post {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .post .muted { line-height: 1.7; }
+    .post .content { line-height: 1.85; }
+    .post .content h2 { margin-top: 28px; }
+    .post .content p { margin: 14px 0; }
+  </style>
+</head>
+
+<body>
+
+  <!-- Background -->
+  <div class="bg" aria-hidden="true">
+    <canvas id="webgl"></canvas>
+    <div class="grain"></div>
+    <div class="glow glow-a"></div>
+    <div class="glow glow-b"></div>
+  </div>
+
+  <!-- Scroll progress -->
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="./" aria-label="Home">
+        <span class="brand-dot"></span>
+        <span class="brand-text">RIKHI</span>
+      </a>
+
+      <nav class="links" aria-label="Primary">
+        <a href="projects.html">Projects</a>
+        <a href="blog.html" aria-current="page">Blog</a>
+        <a href="writing.html">Writing</a>
+        <a href="speaking.html">Speaking</a>
+        <a href="resume.html">Resume</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">◐</button>
+        <a class="pill" href="contact.html">Let’s build</a>
+
+        <button class="icon-btn burger" id="burgerBtn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Drawer OUTSIDE header -->
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-inner">
+      <a href="projects.html" class="drawer-link">Projects</a>
+      <a href="blog.html" class="drawer-link" aria-current="page">Blog</a>
+      <a href="writing.html" class="drawer-link">Writing</a>
+      <a href="speaking.html" class="drawer-link">Speaking</a>
+      <a href="resume.html" class="drawer-link">Resume</a>
+      <a href="contact.html" class="drawer-link">Contact</a>
+
+      <a class="pill wide" href="contact.html">Let’s build</a>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main class="section">
+    <div class="container post">
+
+      <!-- Top row -->
+      <div class="row" style="justify-content: space-between; align-items: flex-end; gap: 14px;">
+        <div>
+          <a class="muted tiny" href="blog.html" style="text-decoration:none;">← Back to Blog</a>
+
+          <!-- 1) EDIT: Title -->
+          <h1 class="title" style="margin:10px 0 0;">POST TITLE</h1>
+
+          <!-- Optional: date / reading time -->
+          <div class="muted tiny" style="margin-top:10px;">
+            <span>Feb 26, 2026</span>
+            <span style="opacity:.5;">•</span>
+            <span>5 min read</span>
+          </div>
+
+          <!-- 2) EDIT: Description -->
+          <p class="muted" style="margin:14px 0 0;">
+            Short post description / teaser goes here.
+          </p>
+        </div>
+
+        <!-- Optional CTA -->
+        <div class="row" style="justify-content:flex-end;">
+          <a class="pill tiny" href="contact.html">Contact</a>
+        </div>
+      </div>
+
+      <div style="height:18px"></div>
+
+      <!-- CONTENT -->
+      <article class="card reveal">
+        <div class="content">
+
+          <!-- 3) EDIT: Content -->
+          <p>
+            Start writing here. Keep it simple: paragraphs, headings, lists, code snippets.
+          </p>
+
+          <h2>Section heading</h2>
+          <p>
+            More content…
+          </p>
+
+          <ul>
+            <li>Bullet</li>
+            <li>Bullet</li>
+          </ul>
+
+          <div style="height:10px"></div>
+
+          <div class="row" style="justify-content: space-between; align-items: center; gap: 14px;">
+            <a class="pill ghost" href="blog.html">Back to Blog</a>
+            <a class="pill primary" href="contact.html">Start a conversation</a>
+          </div>
+
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="muted tiny">© <span id="year"></span> Rikhi Arindam Gayary</div>
+    <div class="row">
+      <a class="muted tiny" href="https://github.com/rikhi20" target="_blank" rel="noreferrer">GitHub</a>
+      <a class="muted tiny" href="https://www.linkedin.com/in/rikhi20/" target="_blank" rel="noreferrer">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>
