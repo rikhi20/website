@@ -1,30 +1,123 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rikhi Arindam Gayary — Product & Systems</title>
+  <title>Rikhi Arindam Gayary</title>
+  <meta name="description" content="Rikhi Arindam Gayary — Product Manager, Enterprise IT, internal platforms & governance automation." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="src/styles.css" />
+
+  <!-- FIX: layout + avatar scaling (safe overrides) -->
+  <style>
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+      align-items: start; /* prevents stretching */
+    }
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; }
+    }
+
+    .hero-stack{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    /* prevent any global img{width:100%} from blowing up inside profile card */
+    .profile-card img{
+      width:auto;
+      height:auto;
+      max-width:none;
+    }
+
+    .profile-top{
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+
+    .profile-card .avatar{
+      width:56px !important;
+      height:56px !important;
+      border-radius:16px;
+      object-fit:cover;
+      flex:0 0 auto;
+      display:block;
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 10px 28px rgba(0,0,0,.18);
+    }
+
+    .profile-title{
+      font-weight:650;
+      letter-spacing:-0.015em;
+      line-height:1.25;
+      margin-top:2px;
+    }
+
+    .profile-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    .divider{
+      height:1px;
+      width:100%;
+      margin:16px 0 14px;
+      background: rgba(255,255,255,.10);
+    }
+
+    .skill-pills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:12px;
+    }
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      padding:7px 10px;
+      border-radius:999px;
+      font-size:12px;
+      line-height:1;
+      letter-spacing:-0.01em;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: inherit;
+    }
+
+    /* Small safety: prevent cards from letting children overflow */
+    .card{ overflow:hidden; }
+  </style>
 </head>
 
 <body>
 
+  <!-- Background -->
   <div class="bg" aria-hidden="true">
     <canvas id="webgl"></canvas>
     <div class="grain"></div>
+    <div class="glow glow-a"></div>
+    <div class="glow glow-b"></div>
   </div>
 
+  <!-- Scroll progress -->
   <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
 
+  <!-- Header -->
   <header class="header">
     <div class="container nav">
       <a class="brand" href="index.html" aria-label="Home">
-        <span class="brand-dot"></span>
-        <span class="brand-text">RIKHI</span>
+        <span class="brand-dot"></span><span class="brand-text">RIKHI</span>
       </a>
 
       <nav class="links" aria-label="Primary">
@@ -39,7 +132,6 @@
       <div class="nav-actions">
         <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">◐</button>
         <a class="pill" href="contact.html">Let’s build</a>
-
         <button class="icon-btn burger" id="burgerBtn" aria-label="Open menu">
           <span></span><span></span><span></span>
         </button>
@@ -47,6 +139,7 @@
     </div>
   </header>
 
+  <!-- Drawer OUTSIDE header -->
   <div class="drawer" id="drawer" aria-hidden="true">
     <div class="drawer-inner">
       <a href="projects.html" class="drawer-link">Projects</a>
@@ -66,7 +159,7 @@
       <div class="container">
         <div class="hero-grid">
 
-          <!-- LEFT: copy -->
+          <!-- LEFT -->
           <div class="reveal">
             <div class="row">
               <span class="tag">Product Manager</span>
@@ -80,9 +173,9 @@
             </h1>
 
             <p class="subtitle">
-              I lead Corporate IT and internal system initiatives across infrastructure,
-              identity, endpoint management, and governance automation —
-              aligning engineering and compliance without slowing velocity.
+              I lead Corporate IT and internal system initiatives across infrastructure, identity,
+              endpoint management, and governance automation — aligning engineering and compliance
+              without slowing velocity.
             </p>
 
             <div class="hero-actions">
@@ -91,11 +184,11 @@
             </div>
           </div>
 
-          <!-- RIGHT: profile + metrics -->
+          <!-- RIGHT -->
           <div class="reveal">
             <div class="hero-stack">
 
-              <!-- Profile card -->
+              <!-- Profile Card (small avatar, no giant image) -->
               <div class="card spotlight profile-card" data-tilt>
                 <div class="profile-top">
                   <img
@@ -117,7 +210,7 @@
                   measurable controls, and low-friction user experience.
                 </p>
 
-                <div class="profile-links" style="margin-top:14px;">
+                <div class="profile-links">
                   <a class="pill tiny ghost" href="resume.html">Resume</a>
                   <a class="pill tiny ghost" href="projects.html">Projects</a>
                   <a class="pill tiny ghost" href="https://github.com/rikhi20" target="_blank" rel="noreferrer">GitHub</a>
@@ -142,34 +235,29 @@
                 </div>
               </div>
 
-              <!-- Metrics card (kept) -->
+              <!-- Metrics Card -->
               <div class="card spotlight" data-tilt>
                 <div class="grid metric-grid">
-
                   <div>
                     <div class="tag">Experience</div>
                     <div class="metric-number">5+ yrs</div>
                     <div class="muted tiny">Enterprise IT</div>
                   </div>
-
                   <div>
                     <div class="tag">Delivery</div>
                     <div class="metric-number">100%</div>
                     <div class="muted tiny">SLA Compliance</div>
                   </div>
-
                   <div>
                     <div class="tag">Leadership</div>
                     <div class="metric-number">10+</div>
                     <div class="muted tiny">Engineers Led</div>
                   </div>
-
                   <div>
                     <div class="tag">Optimization</div>
                     <div class="metric-number">15%</div>
                     <div class="muted tiny">Turnaround Reduction</div>
                   </div>
-
                 </div>
               </div>
 
@@ -183,23 +271,23 @@
     <!-- EXPERTISE -->
     <section class="section" style="padding-top:20px;">
       <div class="container">
-        <div class="grid expertise-grid">
+        <div class="grid cards">
 
-          <div class="card">
+          <div class="card reveal">
             <div class="tag">Product Strategy</div>
             <p class="muted" style="margin-top:12px;">
               Roadmapping internal platforms, aligning OKRs, translating compliance into execution.
             </p>
           </div>
 
-          <div class="card">
+          <div class="card reveal">
             <div class="tag">Infrastructure</div>
             <p class="muted" style="margin-top:12px;">
               AD, Azure AD / Entra, Intune, macOS MDM, device lifecycle automation.
             </p>
           </div>
 
-          <div class="card">
+          <div class="card reveal">
             <div class="tag">Governance</div>
             <p class="muted" style="margin-top:12px;">
               Risk mitigation, audit support, vendor coordination, KPI-driven reporting.
@@ -210,27 +298,26 @@
       </div>
     </section>
 
-    <!-- ROLE + PHILOSOPHY -->
+    <!-- PHILOSOPHY -->
     <section class="section" style="padding-top:40px;">
       <div class="container">
         <div class="split">
 
-          <div class="card spotlight">
-            <div class="tag">Rakuten Group</div>
+          <div class="card spotlight reveal">
+            <div class="tag">Role</div>
             <h2 class="h2" style="margin-top:14px;">Product Manager — Corporate IT</h2>
-            <p class="muted" style="margin-top:10px;">
-              Own product strategy and roadmap for internal supervisory systems.
-              Lead cross-functional teams across engineering, security, and legal.
-              Drive automation initiatives that increase operational reliability.
+            <p class="muted" style="margin-top:10px; line-height:1.8;">
+              Own product strategy and roadmap for internal supervisory systems. Lead cross-functional
+              teams across engineering, security, and legal. Drive automation initiatives that increase
+              operational reliability.
             </p>
           </div>
 
-          <div>
+          <div class="reveal">
             <h2 class="h2">Philosophy</h2>
             <p class="muted" style="line-height:1.8; margin-top:12px;">
-              Enterprise systems should feel invisible.
-              Clean governance, stable infrastructure, measurable KPIs —
-              but no friction for the end user.
+              Enterprise systems should feel invisible. Clean governance, stable infrastructure,
+              measurable KPIs — but no friction for the end user.
             </p>
           </div>
 
@@ -241,8 +328,8 @@
     <!-- CTA -->
     <section class="section" style="padding-top:40px;">
       <div class="container">
-        <div class="card spotlight" style="text-align:center;">
-          <h2 class="h2">Open to enterprise collaborations.</h2>
+        <div class="card spotlight reveal" style="text-align:center;">
+          <h2 class="h2">Open to collaborations.</h2>
           <p class="muted" style="margin-top:10px;">
             Internal platforms, governance automation, or IT modernization strategy.
           </p>
@@ -255,10 +342,9 @@
 
   </main>
 
+  <!-- Footer -->
   <footer class="footer">
-    <div class="muted tiny">
-      © <span id="year"></span> Rikhi Arindam Gayary
-    </div>
+    <div class="muted tiny">© <span id="year"></span> Rikhi Arindam Gayary</div>
     <div class="row">
       <a class="muted tiny" href="https://github.com/rikhi20" target="_blank" rel="noreferrer">GitHub</a>
       <a class="muted tiny" href="https://www.linkedin.com/in/rikhi20/" target="_blank" rel="noreferrer">LinkedIn</a>
@@ -266,6 +352,5 @@
   </footer>
 
   <script type="module" src="src/app.js"></script>
-
 </body>
 </html>
