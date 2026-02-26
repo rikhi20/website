@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Rikhi Arindam Gayary</title>
+  <meta name="description" content="Selected projects by Rikhi Arindam Gayary." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&display=swap" rel="stylesheet">
+
+  <script type="module" crossorigin src="/assets/app-gsMIF9k9.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/app-Baxn4S8T.css">
+</head>
+
+<body>
+
+  <!-- Background -->
+  <div class="bg" aria-hidden="true">
+    <canvas id="webgl"></canvas>
+    <div class="grain"></div>
+    <div class="glow glow-a"></div>
+    <div class="glow glow-b"></div>
+  </div>
+
+  <!-- Scroll progress -->
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="/index.html" aria-label="Home">
+        <span class="brand-dot"></span>
+        <span class="brand-text">RIKHI</span>
+      </a>
+
+      <nav class="links" aria-label="Primary">
+        <a href="/projects.html" aria-current="page">Projects</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/writing.html">Writing</a>
+        <a href="/speaking.html">Speaking</a>
+        <a href="/resume.html">Resume</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">◐</button>
+        <a class="pill" href="/contact.html">Let’s build</a>
+
+        <button class="icon-btn burger" id="burgerBtn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ✅ Drawer must be OUTSIDE header (prevents stacking-context bugs) -->
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-inner">
+      <a href="/projects.html" class="drawer-link" aria-current="page">Projects</a>
+      <a href="/blog.html" class="drawer-link">Blog</a>
+      <a href="/writing.html" class="drawer-link">Writing</a>
+      <a href="/speaking.html" class="drawer-link">Speaking</a>
+      <a href="/resume.html" class="drawer-link">Resume</a>
+      <a href="/contact.html" class="drawer-link">Contact</a>
+
+      <a class="pill wide" href="/contact.html">Let’s build</a>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main class="section">
+    <div class="container">
+
+      <!-- Title -->
+      <div class="section-head reveal">
+        <div>
+          <h1 class="title" style="margin:0;">Projects</h1>
+          <p class="muted" style="margin:10px 0 0; line-height:1.7;">
+            A curated set of work — product builds, internal platforms, and systems improvements.
+          </p>
+        </div>
+        <div class="row" style="justify-content:flex-end;">
+          <a class="pill tiny" href="https://github.com/rikhi20" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="pill tiny" href="/contact.html">Work with me</a>
+        </div>
+      </div>
+
+      <!-- Featured -->
+      <div class="grid cards">
+        <article class="card reveal click" data-tilt onclick="window.open('https://github.com/rikhi20','_blank')">
+          <div class="row">
+            <span class="tag">Featured</span>
+            <span class="muted">Platform</span>
+          </div>
+          <h3 style="margin:14px 0 8px; letter-spacing:-.02em;">Enterprise Ops Automation</h3>
+          <p class="muted" style="margin:0; line-height:1.6;">
+            Automation work that reduces operational friction and improves reliability—designed for scale and governance.
+          </p>
+          <div class="row" style="margin-top:12px;">
+            <span class="pill tiny">Overview</span>
+            <span class="muted tiny">→</span>
+          </div>
+        </article>
+
+        <article class="card reveal click" data-tilt onclick="location.href='/resume.html'">
+          <div class="row">
+            <span class="tag">Corporate IT</span>
+            <span class="muted">Systems</span>
+          </div>
+          <h3 style="margin:14px 0 8px; letter-spacing:-.02em;">Identity / Endpoint Programs</h3>
+          <p class="muted" style="margin:0; line-height:1.6;">
+            Roadmaps and execution across endpoint lifecycle, policy, compliance alignment, and stakeholder management.
+          </p>
+          <div class="row" style="margin-top:12px;">
+            <a class="pill tiny" href="/resume.html">Details</a>
+            <span class="muted tiny">→</span>
+          </div>
+        </article>
+
+        <article class="card reveal click" data-tilt onclick="location.href='/contact.html'">
+          <div class="row">
+            <span class="tag">Next</span>
+            <span class="muted">Case study</span>
+          </div>
+          <h3 style="margin:14px 0 8px; letter-spacing:-.02em;">Add your real case studies</h3>
+          <p class="muted" style="margin:0; line-height:1.6;">
+            Drop in 3–6 real projects with: problem, constraints, your role, approach, and outcomes/metrics.
+          </p>
+          <div class="row" style="margin-top:12px;">
+            <a class="pill tiny" href="/contact.html">Request a rewrite</a>
+            <span class="muted tiny">→</span>
+          </div>
+        </article>
+      </div>
+
+      <div style="height:18px"></div>
+
+      <!-- “How I work” strip -->
+      <div class="card reveal spotlight" data-tilt>
+        <div class="row">
+          <span class="tag">How I ship</span>
+          <span class="muted">Clarity → execution → measurable outcomes</span>
+        </div>
+
+        <div style="height:12px"></div>
+
+        <div class="grid" style="grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px;">
+          <div class="card" style="padding:14px; background: rgba(255,255,255,.05);">
+            <div class="tag">Scope</div>
+            <div class="muted" style="margin-top:10px; line-height:1.6;">
+              Define success metrics, stakeholders, constraints, and risk surface early.
+            </div>
+          </div>
+
+          <div class="card" style="padding:14px; background: rgba(255,255,255,.05);">
+            <div class="tag">Build</div>
+            <div class="muted" style="margin-top:10px; line-height:1.6;">
+              Keep execution tight: milestones, owners, fast feedback loops, and clear comms.
+            </div>
+          </div>
+
+          <div class="card" style="padding:14px; background: rgba(255,255,255,.05);">
+            <div class="tag">Operate</div>
+            <div class="muted" style="margin-top:10px; line-height:1.6;">
+              Measure KPIs, improve reliability, and make systems feel “invisible” to users.
+            </div>
+          </div>
+        </div>
+
+        <div style="height:14px"></div>
+
+        <div class="row">
+          <a class="pill primary" href="/contact.html">Start a conversation</a>
+          <a class="pill ghost" href="/resume.html">See resume</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER (outside main for correct full-width behavior) -->
+  <footer class="footer">
+    <div class="muted tiny">© <span id="year"></span> Rikhi Arindam Gayary</div>
+    <div class="row">
+      <a class="muted tiny" href="https://github.com/rikhi20" target="_blank" rel="noreferrer">GitHub</a>
+      <a class="muted tiny" href="https://www.linkedin.com/in/rikhi20/" target="_blank" rel="noreferrer">LinkedIn</a>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume — Rikhi Arindam Gayary</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="/assets/app-gsMIF9k9.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/app-Baxn4S8T.css">
+</head>
+
+<body>
+
+  <div class="bg" aria-hidden="true">
+    <canvas id="webgl"></canvas>
+    <div class="grain"></div>
+    <div class="glow glow-a"></div>
+    <div class="glow glow-b"></div>
+  </div>
+
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="/index.html" aria-label="Home">
+        <span class="brand-dot"></span>
+        <span class="brand-text">RIKHI</span>
+      </a>
+
+      <nav class="links" aria-label="Primary">
+        <a href="/projects.html">Projects</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/writing.html">Writing</a>
+        <a href="/speaking.html">Speaking</a>
+        <a href="/resume.html" aria-current="page">Resume</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">◐</button>
+
+        <a class="pill" href="/contact.html">Let’s build</a>
+
+        <button class="icon-btn burger" id="burgerBtn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ✅ Drawer must be OUTSIDE header to avoid stacking-context issues -->
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-inner">
+      <a href="/projects.html" class="drawer-link">Projects</a>
+      <a href="/blog.html" class="drawer-link">Blog</a>
+      <a href="/writing.html" class="drawer-link">Writing</a>
+      <a href="/speaking.html" class="drawer-link">Speaking</a>
+      <a href="/resume.html" class="drawer-link" aria-current="page">Resume</a>
+      <a href="/contact.html" class="drawer-link">Contact</a>
+
+      <a class="pill wide" href="/contact.html">Let’s build</a>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main class="section">
+    <div class="container">
+
+      <!-- Title -->
+      <div class="section-head reveal">
+        <h1 class="title" style="margin:0;">Rikhi Arindam Gayary</h1>
+        <p class="muted">Product Manager | IT Infrastructure | Enterprise Systems</p>
+      </div>
+
+      <!-- Summary -->
+      <div class="card reveal" data-tilt>
+        <h2 class="h2">Professional Summary</h2>
+        <p class="muted" style="line-height:1.8;">
+          Results-driven IT Product & Project Manager with experience leading enterprise
+          technology initiatives across Corporate IT environments. Proven ability to deliver
+          scalable solutions on time and within budget while aligning stakeholders across
+          engineering, security, and business teams. Strong background in Windows and macOS
+          infrastructure, endpoint management, and device lifecycle operations.
+        </p>
+      </div>
+
+      <div style="height:16px"></div>
+
+      <!-- Experience -->
+      <div class="card reveal" data-tilt>
+        <h2 class="h2">Professional Experience</h2>
+
+        <div style="margin-top:18px;">
+          <h3 style="margin:0 0 6px;">Rakuten Group — Product Manager</h3>
+          <p class="muted tiny" style="margin:0 0 10px;">Tokyo, Japan | March 2026 – Present</p>
+          <ul class="muted" style="line-height:1.7; margin:0; padding-left:18px;">
+            <li>Own product strategy and roadmap for internal Corporate IT systems.</li>
+            <li>Translate compliance and governance requirements into scalable technical solutions.</li>
+            <li>Lead cross-functional teams (engineering, security, legal).</li>
+            <li>Drive automation and digital transformation initiatives.</li>
+            <li>Monitor KPIs, manage risks, and report progress to leadership.</li>
+          </ul>
+        </div>
+
+        <div style="margin-top:20px;">
+          <h3 style="margin:0 0 6px;">Rakuten Group (via Small World) — Technical Support</h3>
+          <p class="muted tiny" style="margin:0 0 10px;">March 2025 – February 2026</p>
+          <ul class="muted" style="line-height:1.7; margin:0; padding-left:18px;">
+            <li>Coordinated between Helpdesk and Infrastructure teams.</li>
+            <li>Managed Windows, macOS, and mobile device testing.</li>
+            <li>Created technical manuals and knowledge base documentation.</li>
+            <li>Analyzed operational data to support decisions.</li>
+          </ul>
+        </div>
+
+        <div style="margin-top:20px;">
+          <h3 style="margin:0 0 6px;">Adameve Japan — IT Project Manager</h3>
+          <p class="muted tiny" style="margin:0 0 10px;">February 2024 – March 2025</p>
+          <ul class="muted" style="line-height:1.7; margin:0; padding-left:18px;">
+            <li>Achieved 100% SLA compliance.</li>
+            <li>Reduced turnaround time by 15%.</li>
+            <li>Led 10+ engineers.</li>
+            <li>Improved scalability through new IT tools.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="height:16px"></div>
+
+      <!-- Skills -->
+      <div class="split">
+
+        <div class="card reveal" data-tilt>
+          <h2 class="h2">Core Skills</h2>
+          <div class="row" style="margin-top:12px;">
+            <span class="tag">IT Infrastructure</span>
+            <span class="tag">Endpoint Mgmt</span>
+            <span class="tag">Azure AD / Entra</span>
+            <span class="tag">SCCM / Intune</span>
+            <span class="tag">Vendor Mgmt</span>
+            <span class="tag">Risk & Audit</span>
+          </div>
+        </div>
+
+        <div class="card reveal" data-tilt>
+          <h2 class="h2">Technical Stack</h2>
+          <p class="muted" style="line-height:1.7; margin-top:12px;">
+            Windows Server, AD, GPO, DNS/DHCP, SCCM/MECM, Intune, BitLocker,
+            Apple Business Manager, macOS Deployment, MDM, FileVault,
+            Python, Node.js, C++, SQL, JIRA, ServiceNow, Zendesk.
+          </p>
+        </div>
+
+      </div>
+
+      <div style="height:16px"></div>
+
+      <!-- Education -->
+      <div class="card reveal" data-tilt>
+        <h2 class="h2">Education</h2>
+        <p class="muted" style="line-height:1.8; margin:0;">
+          <strong>Ritsumeikan Asia Pacific University</strong><br>
+          M.S. International Relations (2017 – 2019)<br><br>
+          <strong>National Institute of Technology, Bhopal</strong><br>
+          Bachelor of Planning (2013 – 2017)
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER (kept outside main/container for correct full-width behavior) -->
+  <footer class="footer">
+    <div class="muted tiny">© <span id="year"></span> Rikhi Arindam Gayary</div>
+    <div class="row">
+      <a class="muted tiny" href="https://github.com/rikhi20" target="_blank" rel="noreferrer">GitHub</a>
+      <a class="muted tiny" href="https://www.linkedin.com/in/rikhi20/" target="_blank" rel="noreferrer">LinkedIn</a>
+    </div>
+  </footer>
+
+
+</body>
+</html>
