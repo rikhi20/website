@@ -2,7 +2,9 @@ import { defineConfig } from "vite";
 import { resolve } from "path";
 
 export default defineConfig({
-  base: "/website/",
+  // ✅ Custom domain serves from site root (https://rikhi.net/)
+  // This ensures assets load from /assets/... instead of /website/assets/...
+  base: "/",
 
   build: {
     outDir: "dist",
@@ -14,8 +16,8 @@ export default defineConfig({
         writing: resolve(__dirname, "writing.html"),
         speaking: resolve(__dirname, "speaking.html"),
         resume: resolve(__dirname, "resume.html"),
-        contact: resolve(__dirname, "contact.html")
-      }
-    }
-  }
+        contact: resolve(__dirname, "contact.html"),
+      },
+    },
+  },
 });
