@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 import { resolve } from "path";
 
 export default defineConfig({
-  base: "/website/",   // 👈 REQUIRED for GitHub Pages project repo
+  base: "/website/",   // ← THIS IS CRITICAL
 
   build: {
     rollupOptions: {
